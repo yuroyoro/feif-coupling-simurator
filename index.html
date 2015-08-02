@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style>
+.header .form-group {
+  margin-left: 10px;
+}
+.header .form-group label{
+  margin-right: 4px;
+}
+
+.units td, th {
+    border: 1px solid #666;
+    padding: 4px;
+    padding-left: 8px;
+    color: #333;
+}
+
+
+.units .unit {
+  font-size:12px;
+  width: 100px;
+  font-weight: bold;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.units .male{
+  color: #43BAF5;
+}
+
+.units .female{
+  color: #FF6F6F;
+}
+
+.units .disabled {
+  background-color: #eee;
+  cursor: pointer;
+}
+.units .disabled .unit{
+  cursor: not-allowed;
+}
+
+.units .disabled .parameter{
+  cursor: not-allowed;
+}
+
+.units .classes {
+  padding: 3px;
+  padding-left: 8px;
+  vertical-align: middle;
+}
+
+.units .classes .label {
+  font-size: 11px;
+  font-weight: normal;
+  padding: .1em .6em .1em;
+}
+
+.units .minus{
+  color: #43BAF5;
+}
+
+.units .plus{
+  color: #FF6F6F;
+}
+
+.units .parameter {
+  padding: 0px;
+  font-size:12px;
+  width: 25px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.units .candidate td.first {
+  background-color: #fff;
+}
+
+.units tbody tr.active td{
+  background-color: #d9edf7;
+}
+
+.units tr:hover{
+  background-color: #faf2cc;
+}
+
+.norbleicon {
+  color: orange;
+  margin-left: 4px;
+}
+
+</style>
+<body>
+  <nav className="navbar navbar-default">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ファイアーエムブレム if | coupling simurator</a>
+      <p class="navbar-text navbar-right">
+        <a href="https://github.com/yuroyoro/feif_coupling_simurator">source code</a>
+      </p>
+      <p class="navbar-text navbar-right">
+        Author: <a href="https://twitter.com/yuroyoro">@yuroyoro</a>
+      </p>
+     </div>
+  </nav>
+
+  <section id="feifapp"></section>
+  <script src="./bundle.js"></script>
+
+</body>
