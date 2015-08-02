@@ -12,22 +12,32 @@ const Couples = React.createClass({
     var rowspan = candidates.length + candidates.filter((unit) => unit.child).length;
 
     candidates.forEach((husband, i) => {
-      result.push(<Candidate
-        unit    = { unit                          }
-        husband = { husband                       }
-        first   = { i == 0                        }
-        rowspan = { rowspan                       }
-        key     = { `${unit.name}&${husband.name}`}
-      />);
-
       if( husband.child ) {
+        result.push(<Candidate
+          unit    = { unit                          }
+          husband = { husband                       }
+          first   = { i == 0                        }
+          rowspan = { rowspan                       }
+          rowspan2= "2"
+          key     = { `${unit.name}&${husband.name}`}
+        />);
+
         result.push(<Candidate
           unit    = { unit                          }
           husband = { husband                       }
           child   = { husband.child                 }
           first   = { false                         }
           rowspan = { rowspan                       }
+          hideunit= { true                          }
           key     = { `${unit.name}&${husband.name}-child`}
+        />);
+      } else {
+        result.push(<Candidate
+          unit    = { unit                          }
+          husband = { husband                       }
+          first   = { i == 0                        }
+          rowspan = { rowspan                       }
+          key     = { `${unit.name}&${husband.name}`}
         />);
       }
     });

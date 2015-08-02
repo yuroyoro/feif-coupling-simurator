@@ -203,23 +203,29 @@ var Candidate = _react2["default"].createClass({
       }
     }
 
-    var firstCell = null;
+    var cell1 = null;
+    var cell2 = null;
+    var cell3 = null;
     if (this.props.first) {
-      firstCell = _react2["default"].createElement(
+      cell1 = _react2["default"].createElement(
         "td",
         { className: "unit first", rowSpan: this.props.rowspan, colSpan: "2" },
         "候補"
       );
     }
-
+    if (!this.props.hideunit) {
+      var rowspan2 = this.props.rowspan2 || 1;
+      cell2 = _react2["default"].createElement(_UnitNameJsx2["default"], { unit: husband, rowSpan: rowspan2 });
+      cell3 = this.classesCell(husband, "unit classes", rowspan2);
+    }
     var params = this.paramCells(child);
 
     return _react2["default"].createElement(
       "tr",
       { className: styles, onClick: this.onClick },
-      firstCell,
-      _react2["default"].createElement(_UnitNameJsx2["default"], { unit: husband }),
-      this.classesCell(husband, "unit classes"),
+      cell1,
+      cell2,
+      cell3,
       _react2["default"].createElement(_UnitNameJsx2["default"], { unit: child }),
       this.classesCell(child, "unit classes"),
       params
@@ -353,22 +359,32 @@ var Couples = _react2["default"].createClass({
     }).length;
 
     candidates.forEach(function (husband, i) {
-      result.push(_react2["default"].createElement(_CandidateJsx2["default"], {
-        unit: unit,
-        husband: husband,
-        first: i == 0,
-        rowspan: rowspan,
-        key: unit.name + "&" + husband.name
-      }));
-
       if (husband.child) {
+        result.push(_react2["default"].createElement(_CandidateJsx2["default"], {
+          unit: unit,
+          husband: husband,
+          first: i == 0,
+          rowspan: rowspan,
+          rowspan2: "2",
+          key: unit.name + "&" + husband.name
+        }));
+
         result.push(_react2["default"].createElement(_CandidateJsx2["default"], {
           unit: unit,
           husband: husband,
           child: husband.child,
           first: false,
           rowspan: rowspan,
+          hideunit: true,
           key: unit.name + "&" + husband.name + "-child"
+        }));
+      } else {
+        result.push(_react2["default"].createElement(_CandidateJsx2["default"], {
+          unit: unit,
+          husband: husband,
+          first: i == 0,
+          rowspan: rowspan,
+          key: unit.name + "&" + husband.name
         }));
       }
     });
