@@ -59,7 +59,8 @@ const Units = {
     var dis = this.disadvantageSelection[options.disadvantage];
 
     var pmax  = adv.pmax.map((v, i)  => v + dis.pmax[i]);
-    var prate = adv.prate.map((v, i) => v + dis.prate[i]);
+    var prate = [45, 45, 30, 40, 45, 45, 35, 25];
+    prate = prate.map((v, i) => v + adv.prate[i] + dis.prate[i]);
 
     return {
       name    : "マイユニット" + s,

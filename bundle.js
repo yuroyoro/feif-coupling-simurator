@@ -1474,8 +1474,9 @@ var Units = {
     var pmax = adv.pmax.map(function (v, i) {
       return v + dis.pmax[i];
     });
-    var prate = adv.prate.map(function (v, i) {
-      return v + dis.prate[i];
+    var prate = [45, 45, 30, 40, 45, 45, 35, 25];
+    prate = prate.map(function (v, i) {
+      return v + adv.prate[i] + dis.prate[i];
     });
 
     return {
